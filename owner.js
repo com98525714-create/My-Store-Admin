@@ -1,6 +1,6 @@
 const SUPABASE_URL="https://chlqszhbihtqlfghkxwn.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_KVAnDjKUVjHXZfyblDLbTQ__w0IMw8y";
-const $=id=>document.getElementById(id);
+const $=id=>document.getElementById(id)||(console.warn("Missing element #"+id),{classList:{add(){},remove(){},toggle(){}},style:{},dataset:{},set innerHTML(v){},set textContent(v){},set value(v){},get value(){return ""},set onclick(v){},set onchange(v){},set onsubmit(v){}});
 let db=null,products=[],orders=[],customers=[],supportMessages=[];
 function showLoginMessage(message){const el=$("loginMsg");if(el){el.textContent=message;el.style.color="#b42318";el.style.display="block";}}
 if(window.supabase&&window.supabase.createClient){try{db=window.supabase.createClient(SUPABASE_URL.trim(),SUPABASE_PUBLISHABLE_KEY.trim());}catch(err){showLoginMessage("تعذر تهيئة الاتصال: "+(err.message||err));}}
